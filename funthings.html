@@ -59,9 +59,14 @@
     z-index: 3;
     background-color: darkgreen;
   }
+  
+  .navigation {
+    background-color: rgb(51, 102, 0);
+  }
     
   ul {
     list-style-type: none;
+    font-family: sans-serif;
     margin: 3;
     padding: 0;
   }
@@ -70,11 +75,25 @@
     float: left;
   }
   
-  li a {
+  li a:link {
     display: block;
     padding: 8px;
-    background-color: khaki;
+    background-color: rgb(51, 102, 0);
+    color: white;
     text-decoration: none;
+  }
+  li a:visited {
+    color: white;
+    font-weight: bold;
+  }
+  li a:hover {
+    color: white;
+    background-color: black;
+  }
+  li a.active {
+    background-color: black;
+    color: white;
+    font-weight: bold;
   }
   
   #boxcolor {
@@ -85,19 +104,23 @@
   	 text-indent: 5%;
      text-align: justify;
   }
+
+  
     
 </style>
 </head>
 
 <body>
-  
-  <ul>
-    <li> <a href = "home.html"> Home </a> </li>
-    <li> <a href = "calamities.html"> Calamities </a> </li>
-    <li> <a href = "funthings.html"> Nature </a> </li>
-    <li> <a href = "preventions.html"> Preventions </a> </li>
-    <li> <a href = "aboutus.html"> About Us </a> </li>
-  </ul>
+
+  <div class = navigation>
+    <ul>
+      <li> <a href = "home.html"> Home </a> </li>
+      <li> <a href = "calamities.html"> Calamities </a> </li>
+      <li> <a href = "funthings.html"> Nature </a> </li>
+      <li> <a href = "preventions.html"> Preventions </a> </li>
+      <li> <a href = "aboutus.html"> About Us </a> </li>
+    </ul>
+  </div>
   <br>
   <br>
   <div>
