@@ -64,11 +64,24 @@
     float: left;
   }
   
-  li a {
+  li a:link {
     display: block;
     padding: 8px;
     background-color: khaki;
     text-decoration: none;
+  }
+  li a:visited {
+    color: black;
+    font-weight: bold;
+  }
+  li a:hover {
+    background-color: dark-green;
+    color: white;
+  }
+  li a.active {
+    background-color: dark-green;
+    color: white;
+    font-weight: bold;
   }
   
   #boxcolor {
@@ -79,6 +92,8 @@
   	 text-indent: 5%;
      text-align: justify;
   }
+
+  
     
 </style>
 </head>
