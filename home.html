@@ -122,24 +122,24 @@
       z-index: 1000;
     }
 
-    .logo-sprite {
-      width: 64px;
-      height: 64px;
+    .logo {
+      width: 76px; /* 1520px / 20 frames per row if needed; for 2 frames: 760px / 2 = 380px, but scaled down */
+      height: 76px;
       background-image: url("pixil-frame-0.png");
-      background-repeat: no-repeat;
-      background-size: 1520px 760px;
-      background-position: 0 0;
-      animation: globeWink 10s steps(1) infinite;
-      image-rendering: pixelated;
+      background-size: 200% 100%; /* two frames side by side */
+      animation: globeWink 5s steps(1) infinite;
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      left: 20px;
     }
 
-    /* placed this jargon to get the animation working :T */
     @keyframes globeWink {
       0%, 49% {
-      background-position: 0 0;
+        background-position: left;
       }
-    50%, 100% {
-      background-position: -760px 0;
+      50%, 100% {
+        background-position: right;
       }
     }
   </style>
