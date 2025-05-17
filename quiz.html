@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Home - SalvoSphere</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make page responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
   <style>
     * {
@@ -32,7 +32,7 @@
       justify-content: space-between;
       background-color: green;
       padding: 10px 20px;
-      flex-wrap: wrap; 
+      flex-wrap: wrap;
     }
 
     nav ul {
@@ -63,63 +63,64 @@
       font-size: 2.5em;
     }
 
-    h4 {
-      text-align: center;
-      font-style: italic;
-      color: darkgreen;
-      margin-bottom: 30px;
-    }
-
-    h3 {
-      color: #14532d;
-      margin: 30px 0 10px;
-    }
-
     main {
       max-width: 960px;
       margin: auto;
       padding: 20px;
     }
 
-    p, li {
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .indentation {
-      text-indent: 2em;
-      text-align: justify;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      background-color: #14532d;
-      padding: 20px;
-    }
-
-    .gallery img {
-      height: 200px;
-      width: 300px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 8px #333;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    audio.bg-audio {
+    .question {
       display: none;
+      margin-bottom: 30px;
     }
 
-    footer {
+    .question p {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .question button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      background-color: #eee;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .question button:hover {
+      background-color: #d4edda;
+    }
+
+    .nav-buttons {
       text-align: center;
-      font-size: 0.9em;
-      color: #555;
-      padding: 20px 0;
+      margin-top: 20px;
+    }
+
+    .nav-buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      background-color: darkgreen;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #0b3d0b;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
     }
 
     .sprite-wrapper {
@@ -137,7 +138,7 @@
       height: 48px;
       background-image: url("pixil-frame-0.png");
       background-repeat: no-repeat;
-      background-size: 96px 48px; 
+      background-size: 96px 48px;
       background-position: 0 0;
       animation: globeWink 5s steps(2) infinite;
     }
@@ -150,30 +151,12 @@
         background-position: -48px 0;
       }
     }
-    
-    .positionn {
+
+    footer {
       text-align: center;
-      margin: 20px 0;
-    }
-
-    .team-profiles {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 30px;
-    }
-
-    .profile {
-      text-align: center;
-      font-family: "Roboto", sans-serif;
-    }
-
-    .profile img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid darkgreen;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px 0;
     }
   </style>
 </head>
@@ -200,96 +183,106 @@
   </header>
 
   <main>
-    <section>
-      <h1> Life on Land Trivia </h1>
-    </section>
-    <br>
-      <div id="q1" class="question">
-          <p>1. What does SDG 15 mainly focus on?</p>
-          <button onclick="checkAnswer(1, this, true)">A. Protecting forests and biodiversity</button>
-          <button onclick="checkAnswer(1, this, false)">B. Reducing ocean pollution</button>
-          <button onclick="checkAnswer(1, this, false)">C. Building sustainable cities</button>
-          <button onclick="checkAnswer(1, this, false)">D. Improving renewable energy</button>
-      </div>
-      <div id="q2" class="question">
-        <p>2. What percentage of Earth's land is covered by forests?</p>
-        <button onclick="checkAnswer(2, this, false)">A. 10%</button>
-        <button onclick="checkAnswer(2, this, true)">B. 31%</button>
-        <button onclick="checkAnswer(2, this, false)">C. 50%</button>
-        <button onclick="checkAnswer(2, this, false)">D. 75%</button>
-      </div>
-      <div id="q3" class="question">
-        <p>3. Which of these is a major threat to biodiversity?</p>
-        <button onclick="checkAnswer(3, this, true)">A. Deforestation</button>
-        <button onclick="checkAnswer(3, this, false)">B. Increased tourism</button>
-        <button onclick="checkAnswer(3, this, false)">C. Solar energy</button>
-        <button onclick="checkAnswer(3, this, false)">D. Space exploration</button>
-      </div>
-      <div id="q4" class="question">
-        <p>4. How can individuals help achieve Salvosphere's main SDG?</p>
-        <button onclick="checkAnswer(4, this, true)">A. Planting trees and reducing waste</button>
-        <button onclick="checkAnswer(4, this, false)">B. Driving more cars</button>
-        <button onclick="checkAnswer(4, this, false)">C. Wasting food</button>
-        <button onclick="checkAnswer(4, this, false)">D. Ignoring wildlife conservation</button>
-      </div>
-      <div id="q5" class="question">
-        <p>5. What is one goal of Salvosphere's main SDG?</p>
-        <button onclick="checkAnswer(5, this, true)">A. Restore degraded land</button>
-        <button onclick="checkAnswer(5, this, false)">B. Build more factories</button>
-        <button onclick="checkAnswer(5, this, false)">C. Increase plastic production</button>
-        <button onclick="checkAnswer(5, this, false)">D. Expand urban areas</button>
-      </div>
+    <h1> Life on Land Trivia </h1>
+
+    <div id="q1" class="question">
+      <p>1. What does SDG 15 mainly focus on?</p>
+      <button onclick="checkAnswer(1, this, true)">A. Protecting forests and biodiversity</button>
+      <button onclick="checkAnswer(1, this, false)">B. Reducing ocean pollution</button>
+      <button onclick="checkAnswer(1, this, false)">C. Building sustainable cities</button>
+      <button onclick="checkAnswer(1, this, false)">D. Improving renewable energy</button>
+    </div>
+
+    <div id="q2" class="question">
+      <p>2. What percentage of Earth's land is covered by forests?</p>
+      <button onclick="checkAnswer(2, this, false)">A. 10%</button>
+      <button onclick="checkAnswer(2, this, true)">B. 31%</button>
+      <button onclick="checkAnswer(2, this, false)">C. 50%</button>
+      <button onclick="checkAnswer(2, this, false)">D. 75%</button>
+    </div>
+
+    <div id="q3" class="question">
+      <p>3. Which of these is a major threat to biodiversity?</p>
+      <button onclick="checkAnswer(3, this, true)">A. Deforestation</button>
+      <button onclick="checkAnswer(3, this, false)">B. Increased tourism</button>
+      <button onclick="checkAnswer(3, this, false)">C. Solar energy</button>
+      <button onclick="checkAnswer(3, this, false)">D. Space exploration</button>
+    </div>
+
+    <div id="q4" class="question">
+      <p>4. How can individuals help achieve Salvosphere's main SDG?</p>
+      <button onclick="checkAnswer(4, this, true)">A. Planting trees and reducing waste</button>
+      <button onclick="checkAnswer(4, this, false)">B. Driving more cars</button>
+      <button onclick="checkAnswer(4, this, false)">C. Wasting food</button>
+      <button onclick="checkAnswer(4, this, false)">D. Ignoring wildlife conservation</button>
+    </div>
+
+    <div id="q5" class="question">
+      <p>5. What is one goal of Salvosphere's main SDG?</p>
+      <button onclick="checkAnswer(5, this, true)">A. Restore degraded land</button>
+      <button onclick="checkAnswer(5, this, false)">B. Build more factories</button>
+      <button onclick="checkAnswer(5, this, false)">C. Increase plastic production</button>
+      <button onclick="checkAnswer(5, this, false)">D. Expand urban areas</button>
+    </div>
+
+    <div class="nav-buttons">
       <button onclick="prev()">Previous</button>
       <button onclick="next()">Next</button>
       <button onclick="showScore()">Submit</button>
-      <p id="result"></p>
-  </section>
-</main>
-<script>
+    </div>
+
+    <p id="result"></p>
+  </main>
+
+  <script>
     let question = 1;
     let score = 0;
     let answered1 = false, answered2 = false, answered3 = false, answered4 = false, answered5 = false;
 
     function checkAnswer(q, button, correct) {
-         switch (q) {
-          case 1: if (answered1) return; answered1 = true; break;
-          case 2: if (answered2) return; answered2 = true; break;
-          case 3: if (answered3) return; answered3 = true; break;
-          case 4: if (answered4) return; answered4 = true; break;
-          case 5: if (answered5) return; answered5 = true; break;
-          }
+      switch (q) {
+        case 1: if (answered1) return; answered1 = true; break;
+        case 2: if (answered2) return; answered2 = true; break;
+        case 3: if (answered3) return; answered3 = true; break;
+        case 4: if (answered4) return; answered4 = true; break;
+        case 5: if (answered5) return; answered5 = true; break;
+      }
 
-         let options = document.getElementById("q" + q).getElementsByTagName("button");
-         for (let i = 0; i < options.length; i++) {
-            options[i].style.backgroundColor = "";
-            }
+      let options = document.getElementById("q" + q).getElementsByTagName("button");
+      for (let i = 0; i < options.length; i++) {
+        options[i].style.backgroundColor = "";
+      }
 
-            button.style.backgroundColor = correct ? "lightgreen" : "lightcoral";
-            if (correct) score++;
-        }
+      button.style.backgroundColor = correct ? "lightgreen" : "lightcoral";
+      if (correct) score++;
+    }
 
-        function next() {
-            if (question < 5) {
-                document.getElementById("q" + question).style.display = "none";
-                question++;
-                document.getElementById("q" + question).style.display = "block";
-            }
-        }
+    function next() {
+      if (question < 5) {
+        document.getElementById("q" + question).style.display = "none";
+        question++;
+        document.getElementById("q" + question).style.display = "block";
+      }
+    }
 
-        function prev() {
-            if (question > 1) {
-                document.getElementById("q" + question).style.display = "none";
-                question--;
-                document.getElementById("q" + question).style.display = "block";
-            }
-        }
+    function prev() {
+      if (question > 1) {
+        document.getElementById("q" + question).style.display = "none";
+        question--;
+        document.getElementById("q" + question).style.display = "block";
+      }
+    }
 
-        function showScore() {
-            document.getElementById("result").innerText = "Your score: " + score + "/5!";
-        }
-    </script>
-    <footer>
-      2025 SalvoSphere. All rights reserved (not actually).
+    function showScore() {
+      document.getElementById("result").innerText = "Your score: " + score + "/5!";
+    }
+
+    // Show first question on page load
+    document.getElementById("q1").style.display = "block";
+  </script>
+
+  <footer>
+    2025 SalvoSphere. All rights reserved (not actually).
   </footer>
 </body>
 </html>
