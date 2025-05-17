@@ -120,7 +120,15 @@
       position: relative;
       z-index: 10;
     }
-
+    .sprite-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      position: relative;
+    }
     .sprite-logo {
       display: block;
       width: 760px;       /* Width of one frame (1520 / 2 = 760, 760 / 10 = 76) */
@@ -131,7 +139,7 @@
       background-repeat: no-repeat;
       animation: globeWink 5s steps(1) infinite;
       cursor: pointer;
-      transform: scale(0.1); /* scales it to 76x76 */
+      transform: scale(0.0.063); /* scales it to 76x76 */
       transform-origin: top left;
     }
 
@@ -154,7 +162,8 @@
 
   <header>
     <nav class="navbar">
-      <a href="home.html" class="sprite-logo" aria-label="Homepage"></a>
+      <a href="home.html" class="sprite-wrapper" aria-label="Homepage"></a>
+        <div class = "sprite-logo"> </div>
       <ul>
         <li><a href="home.html" class="active">Home</a></li>
         <li><a href="calamities.html">Calamities</a></li>
