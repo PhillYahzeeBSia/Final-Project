@@ -1,192 +1,260 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <title>SalvoSphere!</title>
-<style>
-  
-  * {
-  	box-sizing: border-box;
-  }
-  
-  body {
-    background-image: linear-gradient(to top left, green, white);
-  }
-  
-  h1 {
-  	font-family: "Verdana", verdana, sans-serif;
-    text-align: center;
-  }
+  <meta charset="UTF-8">
+  <title>Home - SalvoSphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make page responsive -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-image: linear-gradient(to top left, #d8f3dc, #ffffff);
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #336600;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: green;
+      padding: 10px 20px;
+      flex-wrap: wrap; 
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin-left: auto;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav li a {
+      display: block;
+      padding: 12px 16px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    nav li a:hover,
+    nav li a.active {
+      background-color: #000;
+    }
+
+    h1 {
+      font-family: 'Verdana', sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
+
+    h4 {
+      text-align: center;
+      font-style: italic;
+      color: darkgreen;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      color: #14532d;
+      margin: 30px 0 10px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    p, li {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .indentation {
+      text-indent: 2em;
+      text-align: justify;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      background-color: #14532d;
+      padding: 20px;
+    }
+
+    .gallery img {
+      height: 200px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px #333;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    audio.bg-audio {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px 0;
+    }
+
+    .sprite-wrapper {
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sprite-logo {
+      width: 48px;
+      height: 48px;
+      background-image: url("pixil-frame-0.png");
+      background-repeat: no-repeat;
+      background-size: 96px 48px; 
+      background-position: 0 0;
+      animation: globeWink 5s steps(2) infinite;
+    }
+
+    @keyframes globeWink {
+      0%, 95%, 100% {
+        background-position: 0 0;
+      }
+      96%, 99% {
+        background-position: -48px 0;
+      }
+    }
     
-  h3 {
-  	color: darkgreen;
-  	font-family: "Roboto", roboto, sans-serif;
-    text-align: left;
-  }
-  
-  h4 {
-  	color: darkgreen;
-  	font-family: "Roboto", roboto, sans-serif;
-    text-align: center;
-  }
-  
-  p {
-  	color: black;
-  	font-family: "Roboto", roboto, sans-serif;
-        text-align: left;
-  }
-  
-  .floatright {
-  	float: right;
-    margin: 3px;
-    padding: 5px;
-  }
-  
-  .bgimg1 {
-    border: 3px solid darkgreen;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    z-index: 3;
-    background-image: url("naturepic1.jpg");
-  }
-  
-  .bgimg2 {
-    border: 3px solid darkgreen;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    z-index: 3;
-    background-color: darkgreen;
-  }
-  
-  .navigation {
-    background-color: rgb(51, 102, 0);
-  }
-    
-  ul {
-    list-style-type: none;
-    font-family: sans-serif;
-    margin: 3;
-    padding: 0;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a:link {
-    display: block;
-    padding: 8px;
-    background-color: rgb(51, 102, 0);
-    color: white;
-    text-decoration: none;
-  }
-  li a:visited {
-    color: white;
-    font-weight: bold;
-  }
-  li a:hover {
-    color: white;
-    background-color: black;
-  }
-  li a.active {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-  }
-  
-  #boxcolor {
-    background-color: yellowgreen;
-  }
-  
-  .indentation {
-  	 text-indent: 5%;
-     text-align: justify;
-  }
-
-  img {
-    float: right;
+    .positionn {
+      text-align: center;
+      margin: 20px 0;
     }
 
-  aside {
-    float: right;
-    }
-  
-  .semtag {
-    text-align: justify;
-    }
-
-  .sprite {
-	  background: url('spritepic2.png') no-repeat 0 0;
-	  background-size: 137px 92px;
-	  width: 137px;
-	  height: 92px;
+    .team-profiles {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
     }
 
-  .sprite1 {
-    background: url('spritepic.png') no-repeat 0 0;
-    width: 200px;
-    height: 164px;
-    animation: varName 1s steps(3) infinite;
+    .profile {
+      text-align: center;
+      font-family: "Roboto", sans-serif;
     }
 
-  @keyframes varName {
-    from{background-position-x: 0px;}
-    to{background-position-x: -309px;}
+    .profile img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid darkgreen;
     }
-
-
-
-  
-</style>
+  </style>
 </head>
 
 <body>
+  <audio class="bg-audio" autoplay loop>
+    <source src="background-music-soft-piano-334995.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-  <div class = navigation>
-    <ul>
-      <li> <a href = "home.html"> Home </a> </li>
-      <li> <a href = "calamities.html"> Calamities </a> </li>
-      <li> <a href = "funthings.html"> Nature </a> </li>
-      <li> <a href = "preventions.html"> Preventions </a> </li>
-      <li> <a href = "aboutus.html"> About Us </a> </li>
-    </ul>
-  </div>
-  <br>
-  <br>
-  <div>
-    <h1> <b> About Us </b> </h1>
-  </div>
-  <br>
-  <br>
-  <br>
-  <div class = semtag>
-    <nav>
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia, dui non suscipit interdum, velit nulla fringilla dui, vitae pharetra lorem lectus semper dui. Mauris porta viverra turpis ac porttitor. Maecenas venenatis quam ac orci rhoncus, a vehicula justo aliquam. Vestibulum egestas nibh mi, interdum convallis diam porttitor sit amet. Praesent eu sapien non tortor hendrerit aliquet. Ut ac odio dictum, consequat est sed, suscipit metus. Etiam convallis lacus vitae orci faucibus, sagittis rhoncus mi iaculis. Morbi justo risus, consequat id efficitur ut, mattis id arcu. Aliquam nec nibh ut lorem venenatis posuere in sed felis. </p>
+  <header>
+    <nav class="navbar">
+      <a href="home.html" class="sprite-wrapper" aria-label="Homepage">
+        <div class="sprite-logo"></div>
+      </a>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="calamities.html">Calamities</a></li>
+        <li><a href="funthings.html">Nature</a></li>
+        <li><a href="preventions.html">Preventions</a></li>
+        <li><a href="aboutus.html" class="active">About Us</a></li>
+      </ul>
     </nav>
-    <aside>
-      <div class = "sprite"> </div>
-      <p> </p>
-    </aside>
-    <article>
-      <h2> Contact Us! </h2>
-      <p> <b> CONTACT NUMBER </b> </p>
-      <p> <i> +999 999 9999 </i> </p>
-      <br>
-      <p> <b> EMAIL ADDRESS </b> </p>
-      <p> <i> p*********e@gmail.com </i> </p>
-      <br>
-      <p> <b> FACEBOOK </b> </p>
-      <p> <i> Y***** B******* S** </i> </p>
-    </article>
-    <footer>
-        <div class = "sprite1"> </div>
-    </footer>
-  </div>
-  
-  <br>
-  <br>
-</body>
+  </header>
 
+  <section>
+    <h1><b> Meet the Team </b> </h1>
+  </section>
+
+  <main>
+    <section>
+      <div class="team-profiles">
+        <div class="profile">
+          <img src="jelly_icon.png" alt="Jelly Springs">
+          <p><strong>Jelly Springs</strong></p>
+        </div>
+        <div class="profile">
+          <img src="cap_icon.png" alt="Cap Topper">
+          <p><strong>Cap Topper</strong></p>
+        </div>
+        <div class="profile">
+          <img src="bowl_icon.png" alt="Bowl Daisy">
+          <p><strong>Bowl Daisy</strong></p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3> About Us </h3>
+      <p class="indentation">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis est sit amet neque suscipit posuere. 
+        Phasellus suscipit gravida ex, tempor molestie quam tristique at. Integer vulputate quam id imperdiet 
+        volutpat. Sed suscipit dolor et ex blandit rutrum.
+      </p>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis est sit amet neque suscipit posuere. Phasellus suscipit gravida ex, tempor molestie quam tristique at. Aliquam tellus lacus, fringilla sed sollicitudin in, efficitur eget justo. Proin faucibus venenatis scelerisque. Integer vulputate quam id imperdiet volutpat. Sed suscipit dolor et ex blandit rutrum. Nunc tincidunt urna odio, et varius sem bibendum non. Sed laoreet nibh a dui interdum egestas. Aliquam erat volutpat. Donec tincidunt lorem at tortor suscipit, sed sodales ipsum iaculis. Pellentesque suscipit ex non felis faucibus, vel hendrerit ipsum posuere. Nulla facilisi. Fusce eget placerat nisl, nec porttitor tellus. </p>
+      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ex, aliquet eu mi eget, posuere placerat magna. Ut at vulputate magna. Aenean consectetur sodales mi. Aliquam malesuada placerat neque in cursus. Pellentesque tempor accumsan ex, ac vulputate enim aliquet at. Aliquam mattis sapien auctor, rhoncus magna sed, tempor eros. Donec imperdiet placerat fringilla. Quisque quis sollicitudin nunc. Mauris suscipit magna sollicitudin, volutpat eros a, feugiat metus. Morbi ultrices tempor viverra. </p>
+    </section>
+
+    <section>
+      <h3> Our Goals </h3>
+      <article>
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit: </p>
+        <ul>
+          <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lectus ex, aliquet eu mi eget, posuere placerat magna. Ut at vulputate magna. Aenean consectetur sodales mi. Aliquam malesuada placerat neque in cursus. Pellentesque tempor accumsan ex, ac vulputate enim aliquet at. Aliquam mattis sapien auctor, rhoncus magna sed, tempor eros. Donec imperdiet placerat fringilla. Quisque quis sollicitudin nunc. Mauris suscipit magna sollicitudin, volutpat eros a, feugiat metus. Morbi ultrices tempor viverra. </li>
+          <li>Nulla imperdiet velit ac dapibus tempus. In eleifend, nunc quis commodo dapibus, magna lorem tincidunt tellus, at scelerisque erat est non ex. Quisque sit amet pharetra ligula. Etiam auctor facilisis velit, non tincidunt nunc eleifend eget. Sed luctus neque nisi, in consectetur nisi ultricies sit amet. Donec quis nunc eu est iaculis varius. In viverra porttitor euismod. Ut rhoncus neque eget lorem facilisis, vitae condimentum purus tincidunt. Nullam ac elementum nunc, id lacinia massa. Aenean vel ultricies lectus, sit amet vestibulum tortor. Pellentesque id lectus aliquam, sagittis justo ac, congue elit. Sed ut scelerisque lorem. </li>
+        </ul>
+        <p> Nulla imperdiet velit ac dapibus tempus. In eleifend, nunc quis commodo dapibus, magna lorem tincidunt tellus, at scelerisque erat est non ex. Quisque sit amet pharetra ligula. Etiam auctor facilisis velit, non tincidunt nunc eleifend eget. Sed luctus neque nisi, in consectetur nisi ultricies sit amet. Donec quis nunc eu est iaculis varius. In viverra porttitor euismod. Ut rhoncus neque eget lorem facilisis, vitae condimentum purus tincidunt. Nullam ac elementum nunc, id lacinia massa. Aenean vel ultricies lectus, sit amet vestibulum tortor. Pellentesque id lectus aliquam, sagittis justo ac, congue elit. Sed ut scelerisque lorem. </p>
+      </article>
+    </section>
+
+    <section>
+      <h3> Contact Us </h3>
+      <ul>
+        <li> CONTACT NUMBER: +999 999 9999 </li>
+        <li> EMAIL ADRESS: p*******than@gmail.com </li>
+        <li> FACEBOOK: Salvosphere Official Account </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    2025 SalvoSphere. All rights reserved (not actually).
+  </footer>
+</body>
 </html>
