@@ -120,26 +120,26 @@
       height: 64px;
       display: block;
       z-index: 1000;
-      overflow: hidden;
     }
 
     .logo-sprite {
-      width: 760px;
-      height: 760px;
-      background-image: url("images/pixil-frame-0.png");
-      background-size: cover;
+      width: 64px;
+      height: 64px;
+      background-image: url("pixil-frame-0.png");
+      background-repeat: no-repeat;
+      background-size: 1520px 760px;
+      background-position: 0 0;
       animation: globeWink 10s steps(1) infinite;
-      transform: scale(0.0842); /* scales 760px down to 64px */
-      transform-origin: top left;
       image-rendering: pixelated;
     }
 
+    /* placed this jargon to get the animation working :T */
     @keyframes globeWink {
       0%, 49% {
-        background-position: 0 0;
+      background-position: 0 0;
       }
-      50%, 100% {
-        background-position: -760px 0;
+    50%, 100% {
+      background-position: -760px 0;
       }
     }
   </style>
