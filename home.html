@@ -129,18 +129,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
     }
 
     .sprite-logo {
-      width: 1520px;
-      height: 760px;
+      width: 48px;
+      height: 48px;
       background-image: url("pixil-frame-0.png");
       background-repeat: no-repeat;
+      background-size: 96px 48px; /* scaled-down size for 2 frames */
       background-position: 0 0;
-      background-size: auto;
       animation: globeWink 5s steps(2) infinite;
-      transform: scale(0.063);
-      transform-origin: top left;
     }
 
     @keyframes globeWink {
@@ -148,52 +147,7 @@
         background-position: 0 0;
       }
       96%, 99% {
-        background-position: -760px 0;
-      }
-    }
-
-    /* ---------- RESPONSIVE DESIGN ---------- */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-        margin-left: 0;
-        gap: 0;
-      }
-
-      nav li a {
-        width: 100%;
-        text-align: left;
-        padding: 12px 20px;
-      }
-
-      .gallery img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-      }
-
-      h1 {
-        font-size: 2em;
-      }
-    }
-
-    @media (max-width: 480px) {
-      main {
-        padding: 10px;
-      }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      h4 {
-        font-size: 1em;
+        background-position: -48px 0;
       }
     }
   </style>
