@@ -1,207 +1,267 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-  <title>SalvoSphere!</title>
-<style>
-  
-  * {
-  	box-sizing: border-box;
-  }
-  
-  body {
-    background-image: linear-gradient(to top left, green, white);
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-
-  .question {
-    display: none;
-    margin-bottom: 20px;
+  <meta charset="UTF-8">
+  <title>Home - SalvoSphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make page responsive -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-  #q1 {
-    display: block;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-image: linear-gradient(to top left, #d8f3dc, #ffffff);
+      color: #111;
+      line-height: 1.6;
     }
 
-  button {
-    display: block;
-    width: 200px;
-    margin: 5px auto;
-    padding: 10px;
-    font-size: 16px;
+    header {
+      background-color: #336600;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-  
-  h1 {
-  	font-family: "Verdana", verdana, sans-serif;
-    text-align: center;
-  }
-    
-  h3 {
-  	color: darkgreen;
-  	font-family: "Roboto", roboto, sans-serif;
-    text-align: left;
-  }
-  
-  h4 {
-  	color: darkgreen;
-  	font-family: "Roboto", roboto, sans-serif;
-    text-align: center;
-  }
-  
-  p {
-  	color: black;
-  	font-family: "Roboto", roboto, sans-serif;
-    text-align: left;
-  }
-  
-  .bgimg1 {
-    border: 3px solid darkgreen;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    z-index: 3;
-    background-image: url("naturepic1.jpg");
-  }
-  
-  .bgimg2 {
-    border: 3px solid darkgreen;
-    padding: 5px;
-    margin: 5px;
-    text-align: center;
-    z-index: 3;
-    background-color: darkgreen;
-  }
 
-  .navigation {
-    background-color: rgb(51, 102, 0);
-  }
-    
-  ul {
-    list-style-type: none;
-    font-family: sans-serif;
-    margin: 3;
-    padding: 0;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a:link {
-    display: block;
-    padding: 8px;
-    background-color: rgb(51, 102, 0);
-    color: white;
-    text-decoration: none;
-  }
-  li a:visited {
-    color: white;
-    font-weight: bold;
-  }
-  li a:hover {
-    color: white;
-    background-color: black;
-  }
-  li a.active {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-  }
-  
-  #boxcolor {
-    background-color: yellowgreen;
-  }
-  
-  .indentation {
-  	 text-indent: 5%;
-     text-align: justify;
-  }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: green;
+      padding: 10px 20px;
+      flex-wrap: wrap; 
+    }
 
-  img {
-    transition-property: transform;
-    transition-duration: 1s;
-    transition-time-function: ease-out;
-  }
-  
-  img:hover {
-    transform: scaleX(1.1) scaleY(1.1);
-  }
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin-left: auto;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
-  
+    nav li a {
+      display: block;
+      padding: 12px 16px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    nav li a:hover,
+    nav li a.active {
+      background-color: #000;
+    }
+
+    h1 {
+      font-family: 'Verdana', sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
+
+    h4 {
+      text-align: center;
+      font-style: italic;
+      color: darkgreen;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      color: #14532d;
+      margin: 30px 0 10px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    p, li {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .indentation {
+      text-indent: 2em;
+      text-align: justify;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      background-color: #14532d;
+      padding: 20px;
+    }
+
+    .gallery img {
+      height: 200px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px #333;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    audio.bg-audio {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px 0;
+    }
+
+    .sprite-wrapper {
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sprite-logo {
+      width: 48px;
+      height: 48px;
+      background-image: url("pixil-frame-0.png");
+      background-repeat: no-repeat;
+      background-size: 96px 48px; 
+      background-position: 0 0;
+      animation: globeWink 5s steps(2) infinite;
+    }
+
+    @keyframes globeWink {
+      0%, 95%, 100% {
+        background-position: 0 0;
+      }
+      96%, 99% {
+        background-position: -48px 0;
+      }
+    }
     
-</style>
+    .positionn {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .team-profiles {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .profile {
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+    }
+
+    .profile img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid darkgreen;
+    }
+  </style>
 </head>
 
 <body>
+  <audio class="bg-audio" autoplay loop>
+    <source src="background-music-soft-piano-334995.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-  <div class = navigation>
-    <ul>
-      <li> <a href = "home.html"> Home </a> </li>
-      <li> <a href = "calamities.html"> Calamities </a> </li>
-      <li> <a href = "funthings.html"> Nature </a> </li>
-      <li> <a href = "preventions.html"> Preventions </a> </li>
-      <li> <a href = "aboutus.html"> About Us </a> </li>
-    </ul>
-  </div>
-  <br>
-  <h1>QUIZ TRIVIA FOR "LIFE ON LAND"</h1>
-    <div id="q1" class="question">
-        <p>1. What does SDG 15 mainly focus on?</p>
-        <button onclick="checkAnswer(1, this, true)">A. Protecting forests and biodiversity</button>
-        <button onclick="checkAnswer(1, this, false)">B. Reducing ocean pollution</button>
-        <button onclick="checkAnswer(1, this, false)">C. Building sustainable cities</button>
-        <button onclick="checkAnswer(1, this, false)">D. Improving renewable energy</button>
-    </div>
-    <div id="q2" class="question">
+  <header>
+    <nav class="navbar">
+      <a href="home.html" class="sprite-wrapper" aria-label="Homepage">
+        <div class="sprite-logo"></div>
+      </a>
+      <ul>
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="calamities.html">Calamities</a></li>
+        <li><a href="funthings.html">Nature</a></li>
+        <li><a href="preventions.html">Preventions</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1> Life on Land Trivia </h1>
+    </section>
+    <br>
+      <div id="q1" class="question">
+          <p>1. What does SDG 15 mainly focus on?</p>
+          <button onclick="checkAnswer(1, this, true)">A. Protecting forests and biodiversity</button>
+          <button onclick="checkAnswer(1, this, false)">B. Reducing ocean pollution</button>
+          <button onclick="checkAnswer(1, this, false)">C. Building sustainable cities</button>
+          <button onclick="checkAnswer(1, this, false)">D. Improving renewable energy</button>
+      </div>
+      <div id="q2" class="question">
         <p>2. What percentage of Earth's land is covered by forests?</p>
         <button onclick="checkAnswer(2, this, false)">A. 10%</button>
         <button onclick="checkAnswer(2, this, true)">B. 31%</button>
         <button onclick="checkAnswer(2, this, false)">C. 50%</button>
         <button onclick="checkAnswer(2, this, false)">D. 75%</button>
-    </div>
-    <div id="q3" class="question">
+      </div>
+      <div id="q3" class="question">
         <p>3. Which of these is a major threat to biodiversity?</p>
         <button onclick="checkAnswer(3, this, true)">A. Deforestation</button>
         <button onclick="checkAnswer(3, this, false)">B. Increased tourism</button>
         <button onclick="checkAnswer(3, this, false)">C. Solar energy</button>
         <button onclick="checkAnswer(3, this, false)">D. Space exploration</button>
-    </div>
-    <div id="q4" class="question">
+      </div>
+      <div id="q4" class="question">
         <p>4. How can individuals help achieve Salvosphere's main SDG?</p>
         <button onclick="checkAnswer(4, this, true)">A. Planting trees and reducing waste</button>
         <button onclick="checkAnswer(4, this, false)">B. Driving more cars</button>
         <button onclick="checkAnswer(4, this, false)">C. Wasting food</button>
         <button onclick="checkAnswer(4, this, false)">D. Ignoring wildlife conservation</button>
-    </div>
-    <div id="q5" class="question">
+      </div>
+      <div id="q5" class="question">
         <p>5. What is one goal of Salvosphere's main SDG?</p>
         <button onclick="checkAnswer(5, this, true)">A. Restore degraded land</button>
         <button onclick="checkAnswer(5, this, false)">B. Build more factories</button>
         <button onclick="checkAnswer(5, this, false)">C. Increase plastic production</button>
         <button onclick="checkAnswer(5, this, false)">D. Expand urban areas</button>
-    </div>
-    <button onclick="prev()">Previous</button>
-    <button onclick="next()">Next</button>
-    <button onclick="showScore()">Submit</button>
-    <p id="result"></p>
-    <script>
-        let question = 1;
-        let score = 0;
-        let answered1 = false, answered2 = false, answered3 = false, answered4 = false, answered5 = false;
+      </div>
+      <button onclick="prev()">Previous</button>
+      <button onclick="next()">Next</button>
+      <button onclick="showScore()">Submit</button>
+      <p id="result"></p>
+  </section>
+</main>
+<script>
+    let question = 1;
+    let score = 0;
+    let answered1 = false, answered2 = false, answered3 = false, answered4 = false, answered5 = false;
 
-        function checkAnswer(q, button, correct) {
-            switch (q) {
-              case 1: if (answered1) return; answered1 = true; break;
-              case 2: if (answered2) return; answered2 = true; break;
-              case 3: if (answered3) return; answered3 = true; break;
-              case 4: if (answered4) return; answered4 = true; break;
-              case 5: if (answered5) return; answered5 = true; break;
-            }
+    function checkAnswer(q, button, correct) {
+         switch (q) {
+          case 1: if (answered1) return; answered1 = true; break;
+          case 2: if (answered2) return; answered2 = true; break;
+          case 3: if (answered3) return; answered3 = true; break;
+          case 4: if (answered4) return; answered4 = true; break;
+          case 5: if (answered5) return; answered5 = true; break;
+          }
 
-            let options = document.getElementById("q" + q).getElementsByTagName("button");
-            for (let i = 0; i < options.length; i++) {
-                options[i].style.backgroundColor = "";
+         let options = document.getElementById("q" + q).getElementsByTagName("button");
+         for (let i = 0; i < options.length; i++) {
+            options[i].style.backgroundColor = "";
             }
 
             button.style.backgroundColor = correct ? "lightgreen" : "lightcoral";
@@ -228,6 +288,8 @@
             document.getElementById("result").innerText = "Your score: " + score + "/5!";
         }
     </script>
+    <footer>
+      2025 SalvoSphere. All rights reserved (not actually).
+  </footer>
 </body>
-
 </html>
