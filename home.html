@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Home - SalvoSphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Make page responsive -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
   <style>
     * {
@@ -16,8 +17,6 @@
       background-image: linear-gradient(to top left, #d8f3dc, #ffffff);
       color: #111;
       line-height: 1.6;
-      margin: 0;
-      padding: 0;
     }
 
     header {
@@ -26,20 +25,22 @@
       top: 0;
       z-index: 1000;
     }
-    
+
     .navbar {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* NEW: ensures logo and nav are spaced properly */
+      justify-content: space-between;
       background-color: green;
       padding: 10px 20px;
-      height: 80px;
+      flex-wrap: wrap; /* Allow wrapping on small screens */
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      margin-left: auto; /* NEW: pushes links to the right */
+      margin-left: auto;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     nav li a {
@@ -50,7 +51,8 @@
       transition: background-color 0.3s;
     }
 
-    nav li a:hover, nav li a.active {
+    nav li a:hover,
+    nav li a.active {
       background-color: #000;
     }
 
@@ -135,18 +137,63 @@
       background-image: url("pixil-frame-0.png");
       background-repeat: no-repeat;
       background-position: 0 0;
-      background-size: auto; /* Not cover */
+      background-size: auto;
       animation: globeWink 5s steps(2) infinite;
-      transform: scale(0.063);  /* 48 / 760 ≈ 0.063 */
+      transform: scale(0.063);
       transform-origin: top left;
     }
-    
+
     @keyframes globeWink {
       0%, 95%, 100% {
         background-position: 0 0;
       }
-      96% 99% {
+      96%, 99% {
         background-position: -760px 0;
+      }
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: 0;
+      }
+
+      nav li a {
+        width: 100%;
+        text-align: left;
+        padding: 12px 20px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding: 10px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h4 {
+        font-size: 1em;
       }
     }
   </style>
@@ -174,7 +221,7 @@
   </header>
 
   <section>
-    <h1> <b> SalvoSphere </b></h1>
+    <h1><b>SalvoSphere</b></h1>
     <h4>Prevent the danger, protect the living, save the planet!</h4>
   </section>
 
