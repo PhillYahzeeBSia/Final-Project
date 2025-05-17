@@ -120,35 +120,36 @@
       position: relative;
       z-index: 10;
     }
+
     .sprite-wrapper {
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 48px;
-      height: 48px;
       overflow: hidden;
       position: relative;
     }
+
     .sprite-logo {
-      display: block;
-      width: 760px;       /* Width of one frame (1520 / 2 = 760, 760 / 10 = 76) */
-      height: 760px;      /* Height of one frame (760 / 10 = 76) */
+      width: 1520px;              /* full width of both frames */
+      height: 760px;
       background-image: url("pixil-frame-0.png");
-      background-size: auto;  /* Two frames horizontally */
-      background-position: 0px 0px;
       background-repeat: no-repeat;
-      animation: globeWink 5s steps(1) infinite;
-      cursor: pointer;
-      transform: scale(0.0.063); /* scales it to 76x76 */
+      background-position: 0 0;
+      background-size: cover;
+      animation: globeWink 5s steps(2) infinite;
+      transform: scale(0.063);    /* 48 / 760 ≈ 0.063 */
       transform-origin: top left;
-    }
+      pointer-events: none;       /* make sure only wrapper handles click */
+     }
 
     @keyframes globeWink {
-      0%, 90%, 100% {
-        background-position: 0px 0px;
+      0%, 95%, 100% {
+        background-position: 0 0;
       }
-      95% {
-        background-position: -760px 0px;
+      96% 99% {
+        background-position: -760px 0;
       }
     }
   </style>
@@ -162,8 +163,9 @@
 
   <header>
     <nav class="navbar">
-      <a href="home.html" class="sprite-wrapper" aria-label="Homepage"></a>
-        <div class = "sprite-logo"> </div>
+      <a href="home.html" class="sprite-wrapper" aria-label="Homepage">
+        <div class="sprite-logo"></div>
+      </a>
       <ul>
         <li><a href="home.html" class="active">Home</a></li>
         <li><a href="calamities.html">Calamities</a></li>
