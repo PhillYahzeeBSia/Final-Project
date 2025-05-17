@@ -41,8 +41,7 @@
       transition: background-color 0.3s;
     }
 
-    nav li a:hover,
-    nav li a.active {
+    nav li a:hover, nav li a.active {
       background-color: #000;
     }
 
@@ -112,41 +111,47 @@
       padding: 20px 0;
     }
 
-    .logo {
-      width: 76px; /* 1520px / 20 frames per row if needed; for 2 frames: 760px / 2 = 380px, but scaled down */
-      height: 76px;
+    .navbar {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a; /* Change to your nav background */
+      padding: 10px 20px;
+      height: 80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .sprite-logo {
+      display: block;
+      width: 76px;       /* Width of one frame (1520 / 2 = 760, 760 / 10 = 76) */
+      height: 76px;      /* Height of one frame (760 / 10 = 76) */
       background-image: url("pixil-frame-0.png");
-      background-size: 200% 100%; /* two frames side by side */
+      background-size: 200% 100%;  /* Two frames horizontally */
+      background-repeat: no-repeat;
       animation: globeWink 5s steps(1) infinite;
       cursor: pointer;
-      position: absolute;
-      top: 20px;
-      left: 20px;
     }
 
     @keyframes globeWink {
-      0%, 49% {
-        background-position: left;
+      0%, 90%, 100% {
+        background-position: 0% 0%;
       }
-      50%, 100% {
-        background-position: right;
+      95% {
+        background-position: 100% 0%;
       }
     }
   </style>
 </head>
 
 <body>
-  <a href="home.html" class="logo-link">
-    <div class="logo-"> </div>
-  </a>
-  
   <audio class="bg-audio" autoplay loop>
     <source src="background-music-soft-piano-334995.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
   <header>
-    <nav>
+    <nav class="navbar">
+      <a href="home.html" class="sprite-logo" aria-label="Homepage"></a>
       <ul>
         <li><a href="home.html" class="active">Home</a></li>
         <li><a href="calamities.html">Calamities</a></li>
