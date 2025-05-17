@@ -26,11 +26,20 @@
       top: 0;
       z-index: 1000;
     }
+    
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* NEW: ensures logo and nav are spaced properly */
+      background-color: green;
+      padding: 10px 20px;
+      height: 80px;
+    }
 
     nav ul {
       display: flex;
-      justify-content: center;
       list-style: none;
+      margin-left: auto; /* NEW: pushes links to the right */
     }
 
     nav li a {
@@ -111,39 +120,27 @@
       padding: 20px 0;
     }
 
-    .navbar {
-      display: flex;
-      align-items: center;
-      background-color: green; 
-      padding: 10px 20px;
-      height: 80px;
-      position: relative;
-      z-index: 10;
-    }
-
     .sprite-wrapper {
       width: 48px;
       height: 48px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      position: relative;
     }
 
     .sprite-logo {
-      width: 1520px;              /* full width of both frames */
+      width: 1520px;
       height: 760px;
       background-image: url("pixil-frame-0.png");
       background-repeat: no-repeat;
       background-position: 0 0;
-      background-size: cover;
+      background-size: auto; /* Not cover */
       animation: globeWink 5s steps(2) infinite;
-      transform: scale(0.063);    /* 48 / 760 ≈ 0.063 */
+      transform: scale(0.063);  /* 48 / 760 ≈ 0.063 */
       transform-origin: top left;
-      pointer-events: none;       /* make sure only wrapper handles click */
-     }
-
+    }
+    
     @keyframes globeWink {
       0%, 95%, 100% {
         background-position: 0 0;
