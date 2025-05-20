@@ -1,1 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - SalvoSphere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-image: linear-gradient(to top left, #d8f3dc, #ffffff);
+      color: #111;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #336600;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: green;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin-left: auto;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav li a {
+      display: block;
+      padding: 12px 16px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    nav li a:hover,
+    nav li a.active {
+      background-color: #000;
+    }
+
+    h1 {
+      font-family: 'Verdana', sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
+
+    h4 {
+      text-align: center;
+      font-style: italic;
+      color: darkgreen;
+      margin-bottom: 30px;
+    }
+
+    h3 {
+      color: #14532d;
+      margin: 30px 0 10px;
+    }
+
+    main {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    p, li {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .indentation {
+      text-indent: 2em;
+      text-align: justify;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      background-color: #14532d;
+      padding: 20px;
+    }
+
+    .gallery img {
+      height: 200px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px #333;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    audio.bg-audio {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #555;
+      padding: 20px 0;
+    }
+
+    .sprite-wrapper {
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sprite-logo {
+      width: 48px;
+      height: 48px;
+      background-image: url("pixil-frame-0.png");
+      background-repeat: no-repeat;
+      background-size: 96px 48px; 
+      background-position: 0 0;
+      animation: globeWink 5s steps(2) infinite;
+    }
+
+    @keyframes globeWink {
+      0%, 95%, 100% {
+        background-position: 0 0;
+      }
+      96%, 99% {
+        background-position: -48px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <audio class="bg-audio" autoplay loop>
+    <source src="background-music-soft-piano-334995.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <header>
+    <nav class="navbar">
+      <a href="home.html" class="sprite-wrapper" aria-label="Homepage">
+        <div class="sprite-logo"></div>
+      </a>
+      <ul>
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="calamities.html">Calamities</a></li>
+        <li><a href="funthings.html">Nature</a></li>
+        <li><a href="preventions.html">Preventions</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h1><b> </b></h1>
+    <h4>Prevent the danger, protect the living, save the planet!</h4>
+  </section>
+
+  <main>
+    <section>
+      <form id="signupForm">
+        <label>First Name: <input type="text" id="fname" name="fname" required></label><br>
+        <label>Last Name: <input type="text" id="lname" name="lname" required></label><br>
+
+        <label>Sex:</label>
+        <label><input type="radio" name="sex" value="Women" required> Women</label>
+        <label><input type="radio" name="sex" value="Men"> Men</label>
+        <label><input type="radio" name="sex" value="Prefer not to say"> Prefer not to say</label><br>
+
+        <label>Email: <input type="email" required></label><br>
+        <label>Password: <input type="password" required></label><br>
+        <label>Contact Number: <input type="tel"></label><br>
+
+        <label>Why are you supporting this campaign?<br>
+        <textarea id="reason" name="reason"></textarea>
+        </label><br>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    2025 SalvoSphere. All rights reserved (not actually).
+  </footer>
+  <script>
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+      document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/";
+    }
+
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const fname = document.getElementById("fname").value;
+      const lname = document.getElementById("lname").value;
+      const sex = document.querySelector('input[name="sex"]:checked').value;
+      const reason = document.getElementById("reason").value;
+
+      setCookie("firstName", fname, 1);
+      setCookie("lastName", lname, 1);
+      setCookie("sex", sex, 1);
+      setCookie("reason", reason, 1);
+
+      window.location.href = "success.html";
+    });
+</script>
+</body>
+</html>
